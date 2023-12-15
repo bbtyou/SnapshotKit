@@ -38,6 +38,9 @@ extension UIView: SnapshotKitProtocol {
             backgroundColor = UIColor.white
         }
         let contentSize = CGSize.init(width: floor(croppingRect.size.width), height: floor(croppingRect.size.height))
+        if contentSize.height == 0 || contentSize.width == 0{
+            return nil
+        }
         UIGraphicsBeginImageContextWithOptions(contentSize, opaqueCanvas, 0)
 
         guard let context = UIGraphicsGetCurrentContext() else {
